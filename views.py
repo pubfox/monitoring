@@ -8,9 +8,16 @@ def json_view(func):
     return wrapper
 
 @json_view
-def test1(request):
-    return {'result': 'ok'}
+def phosts(request, phost_id=None):
+    all_phosts = {'phost1':'phost1', 'phost2':'phost2', }
+    if phost_id==None:
+        return all_phosts
+    return all_phosts.get(phost_id, {})
 
 @json_view
-def test2(request, id):
+def get_current(request, phost_id, name):
+    return {'result': id}
+
+@json_view
+def get_average(request, phost_id, name):
     return {'result': id}
